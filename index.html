@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Normativos e Procedimentos - Gestão Documental Integral</title>
+    <style>
+        :root {
+            --primary-color: #005A9C; /* Azul novobanco */
+            --accent-color: #FF8200;  /* Laranja Destaque */
+            --bg-color: #f4f6f9;
+            --text-color: #2b2b2b;
+            --border-color: #dcdcdc;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        header h1 { margin: 0 0 10px 0; font-size: 2.2rem; }
+        header p { margin: 0; font-size: 1.1rem; opacity: 0.9; }
+        .search-box {
+            width: 70%;
+            padding: 14px 20px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            outline: none;
+            transition: 0.3s;
+        }
+        .search-box:focus {
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            width: 75%;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 25px;
+        }
+        @media (max-width: 1024px) {
+            .grid { grid-template-columns: 1fr; }
+        }
+        .card {
+            background: white;
+            padding: 35px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 12px;
+            margin-top: 0;
+            font-size: 1.8rem;
+        }
+        h3 {
+            color: #1a1a1a;
+            margin-top: 25px;
+            font-size: 1.3rem;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 10px;
+        }
+        h4 {
+            color: #444;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        p, li { font-size: 14.5px; text-align: justify; }
+        ul, ol { padding-left: 20px; margin-bottom: 15px; }
+        li { margin-bottom: 6px; }
+        .badge {
+            background-color: #eee;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-block;
+        }
+        .badge-azul { background-color: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+        .badge-laranja { background-color: #ffeeba; color: #856404; border: 1px solid #ffeeba; }
+        .badge-branco { background-color: #ffffff; color: #333; border: 1px solid #ccc; }
+        .badge-preto { background-color: #1b1e21; color: #fff; }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid var(--border-color);
+        }
+        th { background-color: #f8f9fa; color: #333; font-weight: 600; }
+        tr:nth-child(even) { background-color: #fafafa; }
+        
+        .contact-list {
+            list-style: none;
+            padding: 0;
+        }
+        .contact-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 13.5px;
+        }
+        .contact-list strong { color: var(--primary-color); display: block; margin-bottom: 4px; }
+        .alert-box {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+            color: #856404;
+        }
+        .alert-box h4 { color: #856404; margin-top: 0; }
+        .law-box {
+            background-color: #e2e3e5;
+            border-left: 5px solid #6c757d;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            font-size: 13.5px;
+        }
+        .law-box strong { color: #383d41; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Portal Interno de Normativos e Procedimentos</h1>
+        <p>Base de Conhecimento Integral - Digitalização, Gestão de Arquivo e Suportes Documentais</p>
+        <input type="text" id="searchBar" class="search-box" placeholder="Escreva termos técnicos, referências ou normas para filtrar instantaneamente..." onkeyup="filterContent()">
+    </header>
+
+    <div class="grid">
+        <!-- Coluna Principal com todo o Conteúdo Integrado -->
+        <main>
+            
+            <!-- NORMATIVO 1: NG 0009/2018 -->
+            <section class="card searchable" data-keywords="ng 0009 2018 digitalizacao externalizacao bpo dmo dcce onboarding herdeiros garantias leasing factoring vencido prazos caixas terca feira identificacao indexacao">
+                <h2>1. Digitalização de Documentos - Externalização (NG 0009/2018)</h2>
+                
+                <h3>1.1. Objetivos e Âmbito</h3>
+                <p>Esta Norma Geral (NG) regula de forma estrita o processo, procedimentos de segurança e prazos operacionais aplicáveis à recolha, transporte, preparação, indexação e digitalização de documentação contratada com fornecedores de serviços externos (BPO - Business Process Outsourcing)[span_11](start_span)[span_11](end_span). Aplica-se a todas as direções do Banco, Balcões da Rede Comercial e Centros de Empresas que gerem processos elegíveis para desmaterialização sistemática[span_12](start_span)[span_12](end_span).</p>
+
+                <h3>1.2. Prazos Contratuais e Acordo de Nível de Serviço (SLA)</h3>
+                <p>A recolha física dos suportes documentais é efetuada semanalmente, **às terças-feiras** em cada ponto de origem[span_13](start_span)[span_13](end_span). Os prazos regulamentares de disponibilização das imagens digitais no sistema central contam-se em dias úteis a partir do Dia de Recolha ($D$)[span_14](start_span)[span_14](end_span):</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Cód.</th>
+                            <th>Tipologia de Processo</th>
+                            <th>Unidade Destinatária / Validadora</th>
+                            <th>SLA de Disponibilização (Imagens no Sistema)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>CLI</strong></td>
+                            <td>Abertura, Atualização e Gestão de Contas e Dados de Clientes</td>
+                            <td>DCCE - ONBOARDING</td>
+                            <td><strong>$D + 2$ dias úteis</strong>[span_15](start_span)[span_15](end_span)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>HDH</strong></td>
+                            <td>Processos de Habilitação de Herdeiros</td>
+                            <td>DMO - Ofícios e Entidades</td>
+                            <td><strong>$D + 5$ dias úteis</strong>[span_16](start_span)[span_16](end_span)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>GRB</strong></td>
+                            <td>Dossiers de Garantias Bancárias</td>
+                            <td>DMO - Trade Finance</td>
+                            <td><strong>$D + 5$ dias úteis</strong>[span_17](start_span)[span_17](end_span)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>CP-PL</strong></td>
+                            <td>Crédito Pessoal</td>
+                            <td>BPO - Crédito a Particulares</td>
+                            <td><strong>$D + 5$ dias úteis</strong>[span_18](start_span)[span_18](end_span)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>CH-S</strong></td>
+                            <td>Crédito Habitação (Fase de Servicing)</td>
+                            <td>DMO - Crédito a Particulares</td>
+                            <td><strong>$D + 5$ dias úteis</strong>[span_19](start_span)[span_19](end_span)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>LSG</strong></td>
+                            <td>Processos de Locação Financeira / Leasing</td>
+                            <td>DMO - Leasing</td>
+                            <td><strong>$D + 5$ dias úteis</strong>[span_20](start_span)[span_20](end_span)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>FTG</strong></td>
+                            <td>Processos de Factoring</td>
+                            <td>DMO - Factoring</td>
+                            <td><strong>$D + 5$ dias úteis</strong>[span_21](start_span)[span_21](end_span)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>CVC</strong></td>
+                            <td>Processos e Dossiers de Crédito Vencido</td>
+                            <td>DMO - Crédito Vencido</td>
+                            <td><strong>$D + 5$ dias úteis</strong>[span_22](start_span)[span_22](end_span)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>1.3. Regras de Preparação e Acondicionamento na Origem</h3>
+                <p>Para mitigar falhas de segurança e atrasos na digitalização, as áreas de origem devem obedecer obrigatoriamente às seguintes boas práticas de preparação de arquivo antes da recolha[span_23](start_span)[span_23](end_span):</p>
+                <ul>
+                    <li><strong>Triagem por Entidade e Processo:</strong> É expressamente proibido misturar documentação de diferentes entidades jurídicas do Grupo ou tipologias de processos diferentes na mesma caixa[span_24](start_span)[span_24](end_span). Separe e classifique de forma inequívoca[span_25](start_span)[span_25](end_span).</li>
+                    <li><strong>Identificação Física da Caixa:</strong> Toda a caixa de transporte deve ser identificada na respetiva lombada[span_26](start_span)[span_26](end_span). É obrigatória a indicação clara da Área de Origem (Departamento/Unidade/Balcão), do Código de Processo aplicável e do Número de Caixa sequencial em formato <code>NNNN/AA</code> (onde AA corresponde ao ano corrente)[span_27](start_span)[span_27](end_span).</li>
+                    <li><strong>Instruções de Transporte Segure:</strong> As caixas devem transitar permanentemente seladas ou fechadas, garantindo a integridade e inviolabilidade dos dados de clientes ao longo de todo o circuito logístico[span_28](start_span)[span_28](end_span).</li>
+                    <li><strong>Campos de Indexação Obrigatórios:</strong> A legibilidade dos metadados de identificação nos documentos é da exclusiva responsabilidade da área que os prepara[span_29](start_span)[span_29](end_span). Elementos de indexação críticos (ex: NIF, IDPN, Número de Conta, Número de Contrato) devem estar visíveis, perfeitamente legíveis e sem rasuras que impeçam a leitura manual ou automática pelo fornecedor[span_30](start_span)[span_30](end_span).</li>
+                </ul>
+            </section>
+
+            <!-- NORMATIVO 2: NG 0045/2021 -->
+            <section class="card searchable" data-keywords="ng 0045 2021 arquivo esegur palmela gbes0095 gbes0153 gedoc lti copias originais caixas brancas 10062 10063 10066 decreto lei 29 2020 portaria 135 2020 rgpd">
+                <h2>2. Gestão do Processo de Arquivo (NG 0045/2021)</h2>
+                
+                <h3>2.1. Enquadramento Legal e Âmbito de Aplicação</h3>
+                <div class="law-box">
+                    <strong>Enquadramento Legal:</strong> Em estrita conformidade com o <strong>Decreto-Lei n.º 29/2020</strong> e a <strong>Portaria n.º 135/2020</strong>, este procedimento estabelece a equiparação jurídica entre os suportes digitais digitalizados e os originais em suporte papel, definindo de forma estrita as regras de conservação física, custódia e destruição definitiva e confidencial regulamentada no Grupo[span_31](start_span)[span_31](end_span). O tratamento cumpre as diretrizes impostas pelo Regulamento Geral sobre a Proteção de Dados (RGPD)[span_32](start_span)[span_32](end_span).
+                </div>
+
+                <h3>2.2. Procedimento para a Rede de Balcões (Estrutura Comercial)</h3>
+                <h4>O Saco de Arquivo</h4>
+                <p>As agências devem arquivar e consolidar temporariamente no respetivo balcão todos os suportes gerados num prazo estrito de **5 dias úteis** antes de efetuar o envio via correio interno/saco de arquivo[span_33](start_span)[span_33](end_span). A triagem física no interior do saco deve respeitar o sistema rígido de separadores coloridos[span_34](start_span)[span_34](end_span):</p>
+                <ul>
+                    <li><span class="badge badge-branco">Separador Branco</span> Destinado em exclusivo às Folhas de fecho de caixa do dia[span_35](start_span)[span_35](end_span).</li>
+                    <li><span class="badge badge-azul">Separador Azul</span> Reservado exclusivamente a Lançamentos de correio interno e externo[span_36](start_span)[span_36](end_span).</li>
+                    <li><span class="badge badge-laranja">Separador Laranja</span> Destinado a toda a documentação com impacto na Contabilidade geral[span_37](start_span)[span_37](end_span).</li>
+                    <li><span class="badge badge-preto">Separador Preto</span> Destinado a outros suportes e documentos diversos (que devem, obrigatoriamente, ser agrafados entre si por lote ou cliente)[span_38](start_span)[span_38](end_span).</li>
+                    <li><em>Fora de qualquer separador:</em> Deve circular apenas a documentação transacional pura (operações correntes)[span_39](start_span)[span_39](end_span).</li>
+                </ul>
+
+                <h3>2.3. Procedimento para as Áreas Centrais</h3>
+                <p>As áreas centrais devem processar o arquivo físico em lotes maiores, seguindo as diretrizes abaixo[span_40](start_span)[span_40](end_span):</p>
+                <ul>
+                    <li>A documentação deve ser acondicionada em Caixas de Arquivo Normalizadas **Modelo 10063**[span_41](start_span)[span_41](end_span).</li>
+                    <li>Cada lote ou caixa de arquivo deve ser acompanhado obrigatoriamente pelo formulário de Guia de Remessa **GBES0095** devidamente preenchido[span_42](start_span)[span_42](end_span).</li>
+                    <li>As caixas 10063 devem ser embaladas e enviadas dentro de caixas de transporte castanhas (**Modelo 10066**)[span_43](start_span)[span_43](end_span).</li>
+                    <li>O envio físico é endereçado para o arquivo central de custódia: **55100 ESEGUR - Arquivo Palmela**[span_44](start_span)[span_44](end_span).</li>
+                </ul>
+
+                <div class="alert-box">
+                    <h4>⚠️ Sistema de Alerta e Controlo de Receção (Alerta LTI)</h4>
+                    <p>O sistema central de arquivo (GeDoc) monitoriza a entrega real de todos os documentos marcados com código de barras emitidos na origem[span_45](start_span)[span_45](end_span). Se um documento com código de barras emitido e registado na origem não der entrada física e subsequente validação de receção nas instalações da ESEGUR Palmela no prazo de **20 dias úteis**, o sistema GeDoc gera e dispara um alerta de **LTI (Lançamento em Trânsito/Arquivo em Atraso)** diretamente no posto de trabalho do colaborador responsável pelo envio, exigindo regularização e justificação formal imediata[span_46](start_span)[span_46](end_span).</p>
+                </div>
+
+                <h3>2.4. Requisição de Documentos via GeDoc (Consulta e Originais)</h3>
+                <p>Os colaboradores podem requisitar cópias digitais ou o desentranhamento de originais físicos através da plataforma GeDoc, respeitando os seguintes prazos operacionais de atendimento (calculados no período das 08h30 às 17h30 em dias úteis)[span_47](start_span)[span_47](end_span):</p>
+                <ul>
+                    <li><strong>Urgência Máxima:</strong> Resposta e disponibilização de cópia digital num prazo até **3 horas úteis**[span_48](start_span)[span_48](end_span).</li>
+                    <li><strong>Prioridade Alta:</strong> Resposta e disponibilização entre **3 a 24 horas úteis**[span_49](start_span)[span_49](end_span).</li>
+                    <li><strong>Prioridade Normal:</strong> Resposta num prazo superior a **24 horas úteis**[span_50](start_span)[span_50](end_span).</li>
+                </ul>
+                <p><strong>Regras de Requisição de Documentos Originais:</strong> A requisição física de originais armazenados na ESEGUR é restrita a processos de índole judicial, auditoria interna/externa, inspeções formais de reguladores ou recuperação de crédito litigioso[span_51](start_span)[span_51](end_span). O pedido deve ter validação expressa da DMO e ser endereçado por e-mail para <code>pedidos-originais-gnb@esegur.pt</code> com conhecimento obrigatório para <code>gestaoarquivo@novobanco.pt</code>[span_52](start_span)[span_52](end_span).</p>
+
+                <h3>2.5. Tratamento de Resíduos e Eliminação (Caixas Brancas Modelo 10062)</h3>
+                <ul>
+                    <li><strong>Material Elegível:</strong> As Caixas Brancas Modelo 10062 são de utilização **exclusiva para papel destinado a destruição confidencial**[span_53](start_span)[span_53](end_span). É expressamente proibido depositar plástico, pastas de arquivo, capas de argolas, clipes industriais, disquetes, CDs ou cassetes[span_54](start_span)[span_54](end_span). Estes materiais de suporte não-papel devem ser encaminhados em envelope separado via correio interno para reciclagem/eliminação eletrónica específica[span_55](start_span)[span_55](end_span).</li>
+                    <li><strong>Fluxo nas Áreas Centrais:</strong> O pedido de recolha das Caixas Brancas em armazém deve ser feito através da plataforma *BUYsite* (com o código de artigo/serviço **99991**), sendo exigido um volume mínimo de **5 caixas** por recolha[span_56](start_span)[span_56](end_span).</li>
+                    <li><strong>Fluxo na Rede (Balcões):</strong> A entrega é feita diretamente ao operador logístico diário de transporte de valores/valores postais (limite estrito de **5 caixas por guia de transporte diária**), acompanhadas obrigatoriamente pela guia em duplicado do formulário **GBES0153**[span_57](start_span)[span_57](end_span).</li>
+                </ul>
+            </section>
+
+            <!-- NORMATIVO 3: NG 0039/2023 -->
+            <section class="card searchable" data-keywords="ng 0039 2023 suportes documentais impressos formularios eletrónicos layout margens quadriculas opacidade papel codigos de barras dmo dco dge gedoc prazos publicacao simples complexo muito complexo">
+                <h2>3. Criação, Alteração e Extinção de Suportes Documentais (NG 0039/2023)</h2>
+                
+                <h3>3.1. Âmbito de Aplicação e Cadeia de Validação</h3>
+                <p>Esta norma regulamenta as especificações físicas, técnicas e os procedimentos internos necessários para a criação, alteração ou descontinuação de qualquer suporte documental (impresso físico, minuta, documento informativo ou formulário digital)[span_58](start_span)[span_58](end_span). O circuito de aprovação garante a integridade legal, de marca e de sistemas, passando pelas seguintes fases obrigatórias:</p>
+                <ol>
+                    <li><strong>Proponente (Área de Negócio/Suporte):</strong> Define o requisito funcional e a necessidade do suporte[span_59](start_span)[span_59](end_span).</li>
+                    <li><strong>DMO (Direção de Meios e Operações):</strong> Valida o layout técnico estrutural, atribui a codificação alfanumérica, cria o respetivo código de barras e parametriza a sua distribuição ou arquivo digital no GeDoc[span_60](start_span)[span_60](end_span).</li>
+                    <li><strong>DCO (Compliance) e DGE (Gestão de Informação):</strong> Validam obrigatoriamente o clausulado jurídico do documento, conformidade com a legislação bancária em vigor e recolha de consentimentos em conformidade com o RGPD[span_61](start_span)[span_61](end_span).</li>
+                </ol>
+
+                <h3>3.2. Regras Técnicas de Construção de Layout (Para Digitalização Sem Erros)</h3>
+                <p>De forma a permitir o correto reconhecimento ótico pelas máquinas e scanners profissionais de alta velocidade (Kodak), qualquer novo suporte de papel deve respeitar rigorosamente as seguintes medidas métricas[span_62](start_span)[span_62](end_span):</p>
+                <ul>
+                    <li><strong>Margens de Segurança:</strong> As margens do documento (Topo, Direita e Inferior) devem possuir um espaçamento livre mínimo de **1 cm**; a Margem Esquerda deve ter obrigatoriamente um espaçamento mínimo livre de **1,5 cm** para permitir a furação do papel sem destruir ou ocultar texto[span_63](start_span)[span_63](end_span).</li>
+                    <li><strong>Quadrículas de Preenchimento Manual:</strong> Devem ser de formato estritamente retangular, apresentando dimensões mínimas de **5 mm de largura por 6 mm de altura**[span_64](start_span)[span_64](end_span). O espaçamento entre quadrículas deve ser de 1 mm na horizontal e 2 mm na vertical[span_65](start_span)[span_65](end_span). Devem ser impressas em **cores cegas** (invisíveis ou filtradas pelos scanners óticos, não obstruindo os caracteres escritos pelo cliente)[span_66](start_span)[span_66](end_span).</li>
+                    <li><strong>Qualidade do Papel (Opacidade):</strong> O fundo do impresso deve ser de cor branca com uma taxa de opacidade mínima obrigatória de **90%**[span_67](start_span)[span_67](end_span). Isto evita o fenómeno de "transparência" (onde a digitalização da frente do documento lê também o que está escrito no verso, inutilizando a imagem)[span_68](start_span)[span_68](end_span).</li>
+                    <li><strong>Código de Barras:</strong> É obrigatória a inserção de um código de barras de indexação posicionado de forma imediata e contígua à referência alfanumérica impressa no suporte[span_69](start_span)[span_69](end_span).</li>
+                    <li><strong>Instruções ao Utilizador:</strong> Todo o documento para preenchimento manuscrito deve alertar claramente o cliente ou colaborador para a utilização obrigatória de **caneta preta** e de caracteres em **letras maiúsculas de imprensa**[span_70](start_span)[span_70](end_span).</li>
+                </ul>
+
+                <h3>3.3. Prazos e Níveis de Serviço de Publicação no GeDoc</h3>
+                <p>Os prazos regulamentares para a validação, montagem, parametrização técnica e disponibilização de novos impressos para utilização na plataforma GeDoc variam em função do número de páginas, elementos gráficos (objetos de preenchimento) e inclusão ou não de clausulado jurídico complexo[span_71](start_span)[span_71](end_span):</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nível de Complexidade</th>
+                            <th>Critério Técnico de Classificação (Para 1 Página)</th>
+                            <th>Prazo Base de Execução</th>
+                            <th>Acréscimo por cada Página Extra</th>
+                            <th>Acréscimo por Alteração de Prova</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Simples</strong></td>
+                            <td>Com clausulado jurídico e até 10 objetos de preenchimento OR sem clausulado e até 20 objetos de preenchimento[span_72](start_span)[span_72](end_span).</td>
+                            <td><strong>6 dias úteis</strong>[span_73](start_span)[span_73](end_span)</td>
+                            <td>+1 dia útil[span_74](start_span)[span_74](end_span)</td>
+                            <td>+4 dias úteis[span_75](start_span)[span_75](end_span)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Complexo</strong></td>
+                            <td>Com clausulado jurídico e entre 11 a 30 objetos de preenchimento OR sem clausulado e entre 21 a 40 objetos[span_76](start_span)[span_76](end_span).</td>
+                            <td><strong>10 dias úteis</strong>[span_77](start_span)[span_77](end_span)</td>
+                            <td>+2 dias úteis[span_78](start_span)[span_78](end_span)</td>
+                            <td>+5 dias úteis[span_79](start_span)[span_79](end_span)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Muito Complexo</strong></td>
+                            <td>Com clausulado jurídico e mais de 30 objetos de preenchimento OR sem clausulado e mais de 40 objetos de preenchimento[span_80](start_span)[span_80](end_span).</td>
+                            <td><strong>15 dias úteis</strong>[span_81](start_span)[span_81](end_span)</td>
+                            <td>+3 dias úteis[span_82](start_span)[span_82](end_span)</td>
+                            <td>+6 dias úteis[span_83](start_span)[span_83](end_span)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+
+        <!-- Coluna Lateral (Contactos e Atalhos Completos) -->
+        <aside>
+            <div class="card">
+                <h2>📞 Contactos e Suporte Técnico</h2>
+                <ul class="contact-list">
+                    <li>
+                        <strong>Helpdesk do Arquivo Central (ESEGUR)</strong>
+                        Gestão de arquivo físico, acompanhamento logístico de caixas e resolução de inconsistências (LTIs)[span_84](start_span)[span_84](end_span).
+                        <br>📞 Extensão Interna: <strong>711 600</strong>[span_85](start_span)[span_85](end_span)
+                        <br>📞 Telefone Geral: <strong>21 883 77 88</strong> (Opção 1)[span_86](start_span)[span_86](end_span)
+                        <br>📧 E-mail: <a href="mailto:gestaoarquivo@novobanco.pt">gestaoarquivo@novobanco.pt</a>[span_87](start_span)[span_87](end_span)[span_88](start_span)[span_88](end_span)
+                    </li>
+                    <li>
+                        <strong>DMO – Serviço de Impressos e Suportes</strong>
+                        Pedidos de criação, modificação de layouts e parametrizações no GeDoc[span_89](start_span)[span_89](end_span).
+                        <br>📞 Extensão Interna: <strong>162266</strong>[span_90](start_span)[span_90](end_span)
+                        <br>📞 Telefone Direto: <strong>21 310 89 57</strong>[span_91](start_span)[span_91](end_span)
+                        <br>📧 E-mail: <a href="mailto:dmo.sio.imp@novobanco.pt">dmo.sio.imp@novobanco.pt</a>[span_92](start_span)[span_92](end_span)
+                    </li>
+                    <li>
+                        <strong>Requisição de Originais ESEGUR</strong>
+                        Apenas para processos judiciais e auditoria autorizados[span_93](start_span)[span_93](end_span).
+                        <br>📧 E-mail: <a href="mailto:pedidos-originais-gnb@esegur.pt">pedidos-originais-gnb@esegur.pt</a>[span_94](start_span)[span_94](end_span)
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>🔗 Sistemas e Ferramentas</h2>
+                <ul class="contact-list">
+                    <li>
+                        <strong>💻 Plataforma GeDoc</strong>
+                        <small>Consulta de arquivo geral, verificação de códigos de barra, acompanhamento de Alertas LTI e submissão de novos suportes eletrónicos[span_95](start_span)[span_95](end_span)[span_96](start_span)[span_96](end_span).</small>
+                    </li>
+                    <li>
+                        <strong>🛒 Portal BUYsite</strong>
+                        <small>Requisição de material de arquivo (caixas castanhas Modelo 10066, caixas de arquivo Modelo 10063) e agendamento de serviços de destruição (Código de produto 99991)[span_97](start_span)[span_97](end_span).</small>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="card" style="background-color: #e3f2fd; border-left: 5px solid var(--primary-color);">
+                <h3>💡 Pesquisa Inteligente</h3>
+                <p><small>Este portal filtra a informação dinamicamente à medida que digita. Pode pesquisar termos específicos como "GBES0095[span_98](start_span)"[span_98](end_span), "90%[span_99](start_span)"[span_99](end_span), "LTI[span_100](start_span)"[span_100](end_span), "Saco Laranja[span_101](start_span)"[span_101](end_span), "D+5[span_102](start_span)"[span_102](end_span) ou "Opacidade[span_103](start_span)"[span_103](end_span).</small></p>
+            </div>
+        </aside>
+    </div>
+</div>
+
+<script>
+    function filterContent() {
+        let input = document.getElementById('searchBar').value.toLowerCase();
+        let cards = document.getElementsByClassName('searchable');
+        
+        for (let i = 0; i < cards.length; i++) {
+            let keywords = cards[i].getAttribute('data-keywords').toLowerCase();
+            let cardText = cards[i].innerText.toLowerCase();
+            
+            if (cardText.includes(input) || keywords.includes(input)) {
+                cards[i].style.display = "";
+            } else {
+                cards[i].style.display = "none";
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
